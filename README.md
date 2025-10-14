@@ -19,9 +19,9 @@ The model was implemented in **Python** and evaluated on real-world traffic data
 ## 🧮 Mathematical Model
 The routing problem is modeled as a **directed graph**:
 
-\[
+$$
 G = (V, A)
-\]
+$$
 
 - \( V \): set of nodes (bus stops, intersections)  
 - \( A \): set of directed edges (roads)  
@@ -29,14 +29,16 @@ G = (V, A)
 
 The optimization problem seeks the path \( x \) from a start node \( a \) to an end node \( b \) minimizing:
 
-\[
-\min_{x \in X} \alpha c^T x - (1 - \alpha) \frac{1}{|S_0|} \sum_{x_s \in S_0} x^T x_s
-\]
+$$
+\min_{x \in X} \; \alpha \, c^T x - (1 - \alpha) \frac{1}{|S_0|} \sum_{x_s \in S_0} x^T x_s
+$$
 
 where  
 - \( \alpha \) balances travel cost and similarity,  
 - \( S_0 \) contains the \( k \)-most similar historical routes,  
-- and uncertainty in edge costs is modeled using **robust optimization** following Bertsimas and Sim (2003).
+- and uncertainty in edge costs is modeled using **robust optimization** following *Bertsimas & Sim (2003)*.
+
+The robust counterpart introduces an uncertainty set with the parameter \( \Gamma \), limiting how many edge costs may deviate from their nominal values.
 
 ---
 
@@ -50,7 +52,7 @@ The algorithm was implemented in **Python 3** using:
 | `pandas` | Data management |
 | `heapq` | Priority queue for A* algorithm |
 
-The **A\*** search algorithm was adapted to solve multiple nominal optimization problems, corresponding to different uncertainty levels \( \Gamma \).
+The **A\*** search algorithm was adapted to solve multiple nominal optimization problems corresponding to different uncertainty levels \( \Gamma \).
 
 ---
 
@@ -68,18 +70,25 @@ These metrics determine which \( k \) scenarios from historical data are include
 ## 🧠 Heuristic Approaches
 Two heuristic functions were used within A\*:
 
-1. **Heuristic 1:**  
-   Euclidean distance between current node and goal, divided by estimated travel speed.  
-   Admissible and non-negative.
+### 1. Heuristic 1
+Euclidean distance between the current node and goal, divided by estimated travel speed:
 
-2. **Heuristic 2:**  
-Combines Euclidean distance and historical route alignment via a weighting parameter (`β`):
+$$
+h(n) = \frac{\sqrt{(q_1 - p_1)^2 + (q_2 - p_2)^2}}{v}
+$$
+
+This heuristic is **admissible** and **non-negative**, providing a consistent lower bound on travel cost.
+
+---
+
+### 2. Heuristic 2
+Combines Euclidean distance and historical route alignment via a weighting parameter \( \beta \):
 
 $$
 h(n) = \frac{\beta \cdot \text{distance}(n, g)}{v} - (1 - \beta) \frac{1}{|S_0|} \sum_{x_s \in S_0} s^T x_s
 $$
 
-This integrates both geometry and learned historical behavior.
+This integrates both geometric distance and learned historical behavior, maintaining admissibility while improving contextual accuracy.
 
 ---
 
@@ -91,19 +100,26 @@ The dataset contained:
 
 **Cleaning steps:**
 - Set missing speeds to 24 mph (default)
-- Enforced a 3 mph minimum threshold
+- Applied a minimum threshold of 3 mph
 - Removed duplicate edges and averaged coordinates
-- Filtered data to instances with available historical routes
+- Filtered to include only instances with available historical routes
 
 ---
 
 ## 🧩 Runtime & Optimization
-Graph deep-copy operations initially caused performance issues, consuming ~50% of runtime.  
-This was optimized by creating only one deep copy per **discrete time group**.
+Graph deep-copy operations initially caused performance issues, consuming ~50% of total runtime.  
+This was optimized by creating only **one deep copy per discrete time group**.
 
-Parameter settings for analysis:
+### ⚙️ Parameter Settings for Analysis
+| Parameter | Symbol | Value | Description |
+|------------|---------|--------|--------------|
+| Alpha | \( \alpha \) | 0.5 | Weight between speed and similarity |
+| Beta | \( \beta \) | 0.5 | Weight for historical influence in heuristic 2 |
+| Gamma | \( \Gamma \) | \( N / 2 \) | Number of edges allowed to vary under uncertainty |
+| k | \( k \) | 10 | Number of most similar scenarios used |
+| Similarity Method | – | Euclidean Distance | Method used to determine historical similarity |
 
-The second heuristic proved more robust but computationally heavier due to additional dot-product calculations per step.
+The **second heuristic** proved more robust but computationally heavier due to additional dot-product calculations at each A\* iteration.
 
 ---
 
@@ -122,15 +138,15 @@ The developed algorithm successfully integrates:
 - **Heuristic search** for computational efficiency, and  
 - **Historical data** for practical route familiarity.
 
-Key outcomes:
+### Key Outcomes
 - Improved route stability under variable traffic conditions  
-- Adaptable performance for different time periods  
-- Potential for scalability to other urban networks
+- Adaptive performance for different time periods  
+- Scalable approach for other cities and networks  
 
-**Future work:**
-- Parameter tuning (\( \alpha, \beta, \Gamma, k \)) via training  
-- Enhanced runtime performance for the second heuristic  
-- Application to real-time, large-scale datasets
+### Future Work
+- Parameter tuning (\( \alpha, \beta, \Gamma, k \)) using automated training  
+- Improved runtime performance for heuristic 2  
+- Integration with real-time, large-scale datasets  
 
 ---
 
