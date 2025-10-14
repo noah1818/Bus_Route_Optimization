@@ -6,8 +6,6 @@
 # Version:     2.2.3
 # Description: This script is used by the main.py file to make some data preperation.
 # -----------------------------------------------------------------------------
-# License:     Proprietary - Stratton Oakmont. All rights reserved.
-# -----------------------------------------------------------------------------
 import pandas as pd
 import csv
 import numpy as np
