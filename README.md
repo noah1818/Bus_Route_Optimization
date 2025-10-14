@@ -1,7 +1,6 @@
 # 🚍 Robust Route Optimization for Chicago’s Bus Network
 **Authors:** Julian Vignisson, Pascal Stefani, Noah Boss, Sascha Schrempf  
 **Project Seminar – Final Paper**
-**Link: https://drive.google.com/file/d/1f8iNOh2tfJfhYbsqmRcGz5CD0Zmrwq0g/view?usp=sharing**
 ---
 
 ## 📘 Overview
@@ -154,3 +153,6 @@ The developed algorithm successfully integrates:
 - Bertsimas, D., & Sim, M. (2003). *The Price of Robustness*.  
 - Russell, S. J., & Norvig, P. (2016). *Artificial Intelligence: A Modern Approach*.  
 - Additional sources cited in the full paper.
+
+
+Link: https://drive.google.com/file/d/1f8iNOh2tfJfhYbsqmRcGz5CD0Zmrwq0g/view?usp=sharing
