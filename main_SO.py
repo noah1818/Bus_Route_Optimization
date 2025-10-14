@@ -6,8 +6,6 @@
 # Version:     2.2.3
 # Description: This script contains the main file to start the model with your settings.
 # -----------------------------------------------------------------------------
-# License:     Proprietary - Stratton Oakmont. All rights reserved.
-# -----------------------------------------------------------------------------
 from model import Model
 from data_preperation import Data_Preparator
 from dataset_creation import DataSetCreator
