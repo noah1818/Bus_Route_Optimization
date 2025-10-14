@@ -16,28 +16,30 @@ The model was implemented in **Python** and evaluated on real-world traffic data
 ---
 
 ## 🧮 Mathematical Model
+
 The routing problem is modeled as a **directed graph**:
 
 $$
 G = (V, A)
 $$
 
-- \( V \): set of nodes (bus stops, intersections)  
-- \( A \): set of directed edges (roads)  
-- \( c^0 \): estimated edge costs = edge length / estimated travel speed  
+- $V$: set of nodes (bus stops, intersections)  
+- $A$: set of directed edges (roads)  
+- $c^0$: estimated edge costs = edge length / estimated travel speed  
 
-The optimization problem seeks the path \( x \) from a start node \( a \) to an end node \( b \) minimizing:
+The optimization problem seeks the path $x$ from a start node $a$ to an end node $b$ minimizing:
 
 $$
-\min_{x \in X} \ \alpha \ c^T x - (1 - \alpha) \frac{1}{|S_0|} \sum_{x_s \in S_0} x^T x_s
+\min_{x \in X} \ \alpha \, c^T x - (1 - \alpha) \frac{1}{|S_0|} \sum_{x_s \in S_0} x^T x_s
 $$
 
 where  
-- \( \alpha \) balances travel cost and similarity,  
-- \( S_0 \) contains the \( k \)-most similar historical routes,  
+
+- $\alpha$ balances travel cost and similarity,  
+- $S_0$ contains the $k$-most similar historical routes,  
 - and uncertainty in edge costs is modeled using **robust optimization** following *Bertsimas & Sim (2003)*.
 
-The robust counterpart introduces an uncertainty set with the parameter \( \Gamma \), limiting how many edge costs may deviate from their nominal values.
+The robust counterpart introduces an uncertainty set with the parameter $\Gamma$, limiting how many edge costs may deviate from their nominal values.
 
 ---
 
