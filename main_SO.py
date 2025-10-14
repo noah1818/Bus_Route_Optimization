@@ -1,7 +1,6 @@
 # -----------------------------------------------------------------------------
 # Project:     Bus Route Optimization
 # File:        main.py
-# Company:     Stratton Oakmont
 # Date:        September 13, 2024
 # Version:     2.2.3
 # Description: This script contains the main file to start the model with your settings.
