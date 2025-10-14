@@ -6,8 +6,6 @@
 # Version:     2.2.3
 # Description: This script is used by the main.py file to create the distinct time groups.
 # -----------------------------------------------------------------------------
-# License:     Proprietary - Stratton Oakmont. All rights reserved.
-# -----------------------------------------------------------------------------
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
