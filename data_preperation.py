@@ -1,7 +1,6 @@
 # -----------------------------------------------------------------------------
 # Project:     Bus Route Optimization
 # File:        data_preperation.py
-# Company:     Stratton Oakmont
 # Date:        September 13, 2024
 # Version:     2.2.3
 # Description: This script is used by the main.py file to make some data preperation.
