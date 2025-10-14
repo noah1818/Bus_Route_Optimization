@@ -64,7 +64,7 @@ To identify the most relevant historical routes, three similarity metrics were i
 2. **Manhattan Distance** – captures differences suited to grid-like networks.  
 3. **RBF Kernel Method** – identifies nonlinear relationships in historical route data.
 
-These metrics determine which \( k \) scenarios from historical data are included in the optimization.
+These metrics determine which $k$ scenarios from historical data are included in the optimization.
 
 ---
 
