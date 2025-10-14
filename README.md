@@ -53,7 +53,7 @@ The algorithm was implemented in **Python 3** using:
 | `pandas` | Data management |
 | `heapq` | Priority queue for A* algorithm |
 
-The **A\*** search algorithm was adapted to solve multiple nominal optimization problems corresponding to different uncertainty levels \( \Gamma \).
+The **A\*** search algorithm was adapted to solve multiple nominal optimization problems corresponding to different uncertainty levels $\Gamma$.
 
 ---
 
@@ -83,7 +83,7 @@ This heuristic is **admissible** and **non-negative**, providing a consistent lo
 ---
 
 ### 2. Heuristic 2
-Combines Euclidean distance and historical route alignment via a weighting parameter \( \beta \):
+Combines Euclidean distance and historical route alignment via a weighting parameter $\beta$:
 
 $$
 h(n) = \frac{\beta \cdot \text{distance}(n, g)}{v} - (1 - \beta) \frac{1}{|S_0|} \sum_{x_s \in S_0} s^T x_s
