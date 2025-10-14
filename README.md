@@ -112,7 +112,7 @@ This was optimized by creating only **one deep copy per discrete time group**.
 ### ⚙️ Parameter Settings for Analysis
 | Parameter | Symbol | Value | Description |
 |------------|---------|--------|--------------|
-| Alpha | \( \alpha \) | 0.5 | Weight between speed and similarity |
+| Alpha | $ \alpha $ | 0.5 | Weight between speed and similarity |
 | Beta | \( \beta \) | 0.5 | Weight for historical influence in heuristic 2 |
 | Gamma | \( \Gamma \) | \( N / 2 \) | Number of edges allowed to vary under uncertainty |
 | k | \( k \) | 10 | Number of most similar scenarios used |
