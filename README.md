@@ -143,7 +143,7 @@ The developed algorithm successfully integrates:
 - Scalable approach for other cities and networks  
 
 ### Future Work
-- Parameter tuning (\( \alpha, \beta, \Gamma, k \)) using automated training  
+- Parameter tuning $$( \alpha, \beta, \Gamma, k )$$ using automated training  
 - Improved runtime performance for heuristic 2  
 - Integration with real-time, large-scale datasets  
 
