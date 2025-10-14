@@ -73,11 +73,13 @@ Two heuristic functions were used within A\*:
    Admissible and non-negative.
 
 2. **Heuristic 2:**  
-   Combines Euclidean distance and historical route alignment via a weighting parameter \( \beta \):  
-   \[
-   h(n) = \frac{\beta \cdot \text{distance}(n, g)}{v} - (1 - \beta) \frac{1}{|S_0|} \sum_{x_s \in S_0} s^T x_s
-   \]
-   This integrates both geometry and learned historical behavior.
+Combines Euclidean distance and historical route alignment via a weighting parameter (`β`):
+
+$$
+h(n) = \frac{\beta \cdot \text{distance}(n, g)}{v} - (1 - \beta) \frac{1}{|S_0|} \sum_{x_s \in S_0} s^T x_s
+$$
+
+This integrates both geometry and learned historical behavior.
 
 ---
 
@@ -100,3 +102,48 @@ Graph deep-copy operations initially caused performance issues, consuming ~50% o
 This was optimized by creating only one deep copy per **discrete time group**.
 
 Parameter settings for analysis:
+
+The second heuristic proved more robust but computationally heavier due to additional dot-product calculations per step.
+
+---
+
+## 📊 Results
+- The algorithm consistently avoided high-traffic zones (e.g., downtown Chicago during rush hours).  
+- During low-traffic periods, it sometimes produced more conservative routes due to robustness.  
+- Different similarity metrics (Euclidean, Manhattan, RBF Kernel) yielded nearly identical route structures.
+
+Visual comparisons showed strong alignment with historical routes and adaptive behavior during traffic peaks.
+
+---
+
+## 🧾 Conclusion
+The developed algorithm successfully integrates:
+- **Robust optimization** for uncertainty handling,  
+- **Heuristic search** for computational efficiency, and  
+- **Historical data** for practical route familiarity.
+
+Key outcomes:
+- Improved route stability under variable traffic conditions  
+- Adaptable performance for different time periods  
+- Potential for scalability to other urban networks
+
+**Future work:**
+- Parameter tuning (\( \alpha, \beta, \Gamma, k \)) via training  
+- Enhanced runtime performance for the second heuristic  
+- Application to real-time, large-scale datasets
+
+---
+
+## 🧑‍🤝‍🧑 Contribution Summary
+
+| Section | Julian Vignisson | Pascal Stefani | Noah Boss | Sascha Schrempf |
+|----------|------------------|----------------|------------|-----------------|
+| **Written** | 3.1, Appendix A.1 | 1, 2.2–2.4 | 3.2, 3.3, 4 | 2.1, 2.4 |
+| **Developed** | 3.1, A.1–A.2 | 2.1–2.4, 3.1.1 | 3.1–3.3, 4, A.2 | 2.1–2.4, 3.1.2 |
+
+---
+
+## 📚 References
+- Bertsimas, D., & Sim, M. (2003). *The Price of Robustness*.  
+- Russell, S. J., & Norvig, P. (2016). *Artificial Intelligence: A Modern Approach*.  
+- Additional sources cited in the full paper.
