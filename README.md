@@ -156,5 +156,6 @@ The developed algorithm successfully integrates:
 - Russell, S. J., & Norvig, P. (2016). *Artificial Intelligence: A Modern Approach*.  
 - Additional sources cited in the full paper.
 
+---
 
 Link: https://drive.google.com/file/d/1f8iNOh2tfJfhYbsqmRcGz5CD0Zmrwq0g/view?usp=sharing
