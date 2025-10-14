@@ -147,7 +147,20 @@ The developed algorithm successfully integrates:
 ### Future Work
 - Parameter tuning $$( \alpha, \beta, \Gamma, k )$$ using automated training  
 - Improved runtime performance for heuristic 2  
-- Integration with real-time, large-scale datasets  
+- Integration with real-time, large-scale datasets
+
+---
+
+## 🧱 File Structure
+
+```bash
+.
+├── README.md                 # Project documentation
+├── data_preperation.py       # Data cleaning and preprocessing for traffic and routes
+├── dataset_creation.py       # Generates datasets from historical bus route data
+├── main_SO.py                # Main script executing robust optimization model
+├── model.py                  # Core robust optimization and heuristic model
+└── routes.csv                # Input CSV file with route and traffic data
 
 ---
 
