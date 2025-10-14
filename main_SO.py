@@ -11,10 +11,10 @@ from data_preperation import Data_Preparator
 from dataset_creation import DataSetCreator
 
 # path to the data frames
-path_data_all = "/Users/noah/Downloads/data-all.csv"
-path_route_all = "/Users/noah/Downloads/route-all.csv"
-path_graph_all = "/Users/noah/Downloads/graph.csv"
-path_route_all_missing_last_day = "/Users/noah/Downloads/route-all-missing-last-day.csv"
+path_data_all = "data-all.csv"
+path_route_all = "route-all.csv"
+path_graph_all = "graph.csv"
+path_route_all_missing_last_day = "route-all-missing-last-day.csv"
 
 if 'main' in __name__:
     # create instance of the data helper class
