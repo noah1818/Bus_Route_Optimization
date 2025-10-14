@@ -7,8 +7,6 @@
 # Description: This script contains the main algorithm to optimize bus routes
 #              in the city of Chicago, using graph theory and heuristic search.
 # -----------------------------------------------------------------------------
-# License:     Proprietary - Stratton Oakmont. All rights reserved.
-# -----------------------------------------------------------------------------
 import numpy as np
 import pandas as pd
 from typing import Tuple, Optional
