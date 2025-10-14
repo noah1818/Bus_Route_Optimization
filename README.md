@@ -150,15 +150,6 @@ The developed algorithm successfully integrates:
 
 ---
 
-## 🧑‍🤝‍🧑 Contribution Summary
-
-| Section | Julian Vignisson | Pascal Stefani | Noah Boss | Sascha Schrempf |
-|----------|------------------|----------------|------------|-----------------|
-| **Written** | 3.1, Appendix A.1 | 1, 2.2–2.4 | 3.2, 3.3, 4 | 2.1, 2.4 |
-| **Developed** | 3.1, A.1–A.2 | 2.1–2.4, 3.1.1 | 3.1–3.3, 4, A.2 | 2.1–2.4, 3.1.2 |
-
----
-
 ## 📚 References
 - Bertsimas, D., & Sim, M. (2003). *The Price of Robustness*.  
 - Russell, S. J., & Norvig, P. (2016). *Artificial Intelligence: A Modern Approach*.  
