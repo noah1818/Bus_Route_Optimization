@@ -30,7 +30,7 @@ $$
 The optimization problem seeks the path $x$ from a start node $a$ to an end node $b$ minimizing:
 
 $$
-\min_{x \in X} \ \alpha \, c^T x - (1 - \alpha) \frac{1}{|S_0|} \sum_{x_s \in S_0} x^T x_s
+\min_{x \in X} \ \alpha \ c^T x - (1 - \alpha) \frac{1}{|S_0|} \sum_{x_s \in S_0} x^T x_s
 $$
 
 where  
